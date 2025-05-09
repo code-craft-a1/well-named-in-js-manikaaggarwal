@@ -37,3 +37,11 @@ function test(){
 
 test();
 
+function printReport(){
+  for(let i=1; i<25; i++){
+    const testPair = getColorFromPairNumber(i);
+    console.log(`[In]Pair Number: ${i},[Out] Colors:${testPair}`);
+  }
+}
+
+printReport();
