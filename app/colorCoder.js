@@ -1,4 +1,3 @@
-
 const MajorColorNames = [
     "WHITE", "RED", "BLACK", "YELLOW", "VIOLET"
 ];
@@ -6,7 +5,7 @@ const MinorColorNames = [
 	"BLUE", "ORANGE", "GREEN", "BROWN", "SLATE"
 ];
 
-function ColorPair(){
+export function ColorPair(){
            this.majorColor;
            this.minorColor;
 }
@@ -15,7 +14,7 @@ ColorPair.prototype.toString=function(){
 	return `MajorColor:${this.majorColor},MinorColr:${this.minorColor}`;
 }
 
-function getColorFromPairNumber(pairNumber)
+export function getColorFromPairNumber(pairNumber)
 {
 	let minorSize = MajorColorNames.length;
 	let majorSize = MinorColorNames.length;
@@ -33,7 +32,7 @@ function getColorFromPairNumber(pairNumber)
 	return pair;
 }
 
-function getPairNumberFromColor(pair)
+export function getPairNumberFromColor(pair)
         {
         let majorIndex = -1;
         for (let i = 0; i < MajorColorNames.length; i++)
@@ -62,40 +61,3 @@ function getPairNumberFromColor(pair)
 
         return (majorIndex * MinorColorNames.length) + (minorIndex + 1);
 	 }
-	 
-	 function test(){
-			let pairNumber;
-            pairNumber = 4;
-            let testPair1 = getColorFromPairNumber(pairNumber);
-            console.log(`[In]Pair Number: ${pairNumber},[Out] Colors:${testPair1}`);
-			console.assert(testPair1.majorColor == "WHITE");
-			console.assert(testPair1.minorColor == "BROWN");
-
-			pairNumber = 5;
-            testPair1 = getColorFromPairNumber(pairNumber);
-            console.log(`[In]Pair Number: ${pairNumber},[Out] Colors:${testPair1}`);
-			console.assert(testPair1.majorColor == "WHITE");
-			console.assert(testPair1.minorColor == "SLATEGRAY");
-			 
-			pairNumber = 23;
-            testPair1 = getColorFromPairNumber(pairNumber);
-            console.log(`[In]Pair Number: ${pairNumber},[Out] Colors:${testPair1}`);
-			console.assert(testPair1.majorColor == "RED");
-			console.assert(testPair1.minorColor == "GREEN");
-			 
-            let testPair2 = new ColorPair();
-			testPair2.majorColor="YELLOW";
-			testPair2. minorColor ="GREEN";
-            pairNumber =getPairNumberFromColor(testPair2);
-            console.log(`[In]Colors: ${testPair2}, [Out] PairNumber: ${pairNumber}`);
-			console.assert(pairNumber==18);
-
-			testPair2 = new ColorPair();
-			testPair2.majorColor="RED";
-			testPair2. minorColor ="BLUE";
-            pairNumber =getPairNumberFromColor(testPair2);
-            console.log(`[In]Colors: ${testPair2}, [Out] PairNumber: ${pairNumber}`);
-			console.assert(pairNumber==6);
-}
-
-test();
